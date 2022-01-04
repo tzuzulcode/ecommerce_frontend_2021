@@ -1,14 +1,23 @@
 import { db } from "..";
-import {collection,getDocs} from 'firebase/firestore'
+import {collection,getDoc,setDoc,doc} from 'firebase/firestore'
 
-export async function saveCart(){
-    collection(db,"carritos")
+export async function saveCart(id,productos){
+    const documento = doc(db,"carritos",id)
+    const carrito = await setDoc(documento,{productos})
+
+    console.log(carrito)
+    return carrito
+
 }
-export async function getCarts(){
-    const carritosCol = collection(db,"carritos")
-    const snapshot = await getDocs(carritosCol)
+export async function getCart(id){
+    const documento = doc(db,"carritos",id)
+    const snapshot = await getDoc(documento)
 
-    const carritos = snapshot.docs.map(documento=>documento.data())
-
-    return carritos
+    if (snapshot.exists()) {
+        return snapshot.data()
+    } else {
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
+        //Lanzar el error
+    }    
 }
