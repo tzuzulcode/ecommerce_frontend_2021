@@ -5,6 +5,8 @@ import Hero from '../components/Hero'
 import Page from '../components/Page'
 import Product from '../components/Product'
 import { obtenerProductos } from '../features/productos/productosSlice'
+import axios from 'axios'
+import { get } from '../api'
 export default function Home() {
     
 
@@ -13,6 +15,26 @@ export default function Home() {
 
     useEffect(()=>{
         dispatch(obtenerProductos())
+
+        get('/api/productos')
+        .then(result=>console.log(result.data))
+        .catch(error=>console.log(error))
+
+        // axios.post("https://misitio.com/api/productos",{
+        //     //info
+        // })
+        // .then(result=>console.log(result.data))
+        // .catch(error=>console.log(error))
+
+        // fetch("http://localhost:4000/api/productos",{
+        //     method:"POST",
+        //     body:{
+        //         //info
+        //     }
+        // })
+        // .then(response=>response.json())
+        // .then(data=>console.log(data))
+        // .catch(error=>console.log(error))
     },[dispatch])
 
     
