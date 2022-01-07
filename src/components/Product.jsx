@@ -11,7 +11,7 @@ export default function Product({producto}) {
     
     useEffect(()=>{
         if(productos.length!==0){
-            const enCarrito = productos.find(prod=>prod.id===producto.id)
+            const enCarrito = productos.find(prod=>prod._id===producto._id)
 
             if(enCarrito){
                 setAdded(true)

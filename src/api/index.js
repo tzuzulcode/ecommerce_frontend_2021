@@ -10,7 +10,7 @@ const app = initializeApp(credentials);
 export const db = getFirestore(app)
 
 const instance = axios.create({
-    baseURL: 'http://localhost:4000'
+    baseURL: 'https://pruebastzuzulcode.wl.r.appspot.com/'
 })
 
 const get = async (url)=>{
@@ -18,6 +18,11 @@ const get = async (url)=>{
         withCredentials:true
     })
 }
+const post = async (url,data)=>{
+    return await instance.post(url,data,{
+        withCredentials:true // Permite enviar cookies
+    })
+}
 
 
-export {get}
+export {get,post}

@@ -16,9 +16,9 @@ export default function Home() {
     useEffect(()=>{
         dispatch(obtenerProductos())
 
-        get('/api/productos')
-        .then(result=>console.log(result.data))
-        .catch(error=>console.log(error))
+        // get('/api/productos')
+        // .then(result=>console.log(result.data))
+        // .catch(error=>console.log(error))
 
         // axios.post("https://misitio.com/api/productos",{
         //     //info

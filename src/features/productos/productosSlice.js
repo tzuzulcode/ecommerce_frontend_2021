@@ -1,4 +1,5 @@
 import { createSlice,createAsyncThunk } from "@reduxjs/toolkit"
+import { get } from "../../api"
 import { getProducts } from "../../api/productos"
 
 const initialState ={
@@ -7,8 +8,8 @@ const initialState ={
 }
 
 export const obtenerProductos = createAsyncThunk("productos/get", async ()=>{
-    const productos = await getProducts()
-    return productos
+    const productos = await get("/api/productos")
+    return productos.data
 })
 
 const carritoSlice = createSlice({

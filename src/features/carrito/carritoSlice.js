@@ -36,7 +36,7 @@ const carritoSlice = createSlice({
             const producto = action.payload
 
             state.productos.forEach((elemento,index)=>{
-                if(elemento.id===producto.id){
+                if(elemento._id===producto._id){
                     existe = true
                     pos = index
                 }

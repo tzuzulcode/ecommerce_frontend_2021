@@ -4,6 +4,7 @@ import {BrowserRouter, Routes,Route} from 'react-router-dom'
 import { recuperarCarrito } from './features/carrito/carritoSlice';
 import Carrito from './pages/Carrito';
 import Home from './pages/Home';
+import Login from './pages/Login';
 import Home2 from './pages/Home2';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path="/" element={<Home/>}/>
         <Route path="/home2" element={<Home2/>}/>
         <Route path="/carrito" element={<Carrito/>}/>
+        <Route path="/login" element={<Login/>}/>
       </Routes>
     </BrowserRouter>
   );
